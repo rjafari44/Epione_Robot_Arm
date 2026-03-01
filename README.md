@@ -12,7 +12,7 @@ The system is divided into four primary sections:
 A Bill of Materials (BOM) is not included here, as the official ARCTOS BOM covers the majority of required components. This repository contains only files and documentation original to our group, including custom CAD files and wiring schematics.
 
 Image of robot arm:  
-*(Insert image here)*
+![Diagram](/assets/)
 
 ---
 
