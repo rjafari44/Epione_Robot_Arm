@@ -9,7 +9,6 @@ The system is divided into four primary sections:
 - [Programming](#programming)
 - [How to Run](#how-to-run)
 
-
 A Bill of Materials (BOM) is not included here, as the official ARCTOS BOM covers the majority of required components. This repository contains only files and documentation original to our group, including custom CAD files and wiring schematics.
 
 Image of robot arm:  
@@ -38,7 +37,7 @@ All structural components were 3D printed using PLA+.
 
 Temperature settings were filament- and printer-specific and are not documented here.
 
-The CAD files for the robot body were purchased as part of the ARCTOS kit and are not redistributed.
+The CAD files for the robot body were purchased as part of the ARCTOS kit and are not redistributed. 
 
 ### Custom End Effector
 
@@ -51,6 +50,9 @@ The design prioritizes:
 - Easy maintenance  
 
 All custom end effector CAD files are included in this repository.
+
+End Effector Assembly Model:
+![Diagram](assets/Gripper.png)
 
 ### Assembly Notes
 
