@@ -20,6 +20,8 @@ void moveMotors(int dir) {
       motors[3].moveTo(motors[3].currentPosition() - scaledStep); // move motor 4 backward
       break;
     case 4: // base motor
+      motors[5].setMaxSpeed(600);     // set speed for motor 5
+      motors[5].setAcceleration(400); // set acceleration for motor 5
       motors[5].moveTo(motors[5].currentPosition() + scaledStep); // move motor 6
       break;
     case 5: // lower gearbox
