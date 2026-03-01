@@ -1,7 +1,9 @@
 #include "myheader.h"
 
 void moveMotors(int dir) {
-  int scaledStep = STEP_SCALE* dir;
+  int scaledStep{};
+  
+  scaledStep = STEP_SCALE* dir;
 
   switch (currentMode) {
     case 1: // Servo

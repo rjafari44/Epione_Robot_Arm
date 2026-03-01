@@ -22,16 +22,22 @@ void setup() {
 
 void loop() {
   static String inputLine = "";
+  static unsigned long fistHoldStart{};
+  static bool motorActive{};
+  char c{};
+  int commaIndex{};
+  int motor{};
+  int cmd{};
 
   // ---------- SERIAL READING ----------
   while (Serial.available()) {
-    char c = Serial.read();
+    c = Serial.read();
     if (c == '\n') {
       // parse line from python: <motor>,<command>
-      int commaIndex = inputLine.indexOf(',');
+      commaIndex = inputLine.indexOf(',');
       if (commaIndex > 0) {
-        int motor = inputLine.substring(0, commaIndex).toInt();
-        int cmd   = inputLine.substring(commaIndex + 1).toInt();
+        motor = inputLine.substring(0, commaIndex).toInt();
+        cmd   = inputLine.substring(commaIndex + 1).toInt();
         
         // ---------- MOTOR SELECTION ----------
         if (!motorActive && motor >= 1 && motor <= 5) {

@@ -27,7 +27,6 @@ inline AccelStepper motors[5] = {
   AccelStepper(AccelStepper::DRIVER, M5_STEP, M5_DIR)  // 4
 };
 
-// ---------------- GLOBAL CONSTANTS ----------------
 constexpr int STEP_SCALE{60};
 constexpr int MAX_STEPPER_SPEED{300};
 constexpr int MAX_STEPPER_ACCEL{200};
