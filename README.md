@@ -243,7 +243,7 @@ Below is the team and their LinkedIn profiles for reference:
 
 | Name | Role | LinkedIn |
 |------|------|---------|
-| Radin Jafari | Electrical & Programming | [LinkedIn](https://www.linkedin.com/in/yourprofile) |
-| Wilson Yang | Mechanical & Design | [LinkedIn](link) |
-| Hongyi Zhu | Mechanical & Assembly | [LinkedIn](link) |
-| Brady Dong | Mechanical & Assembly | [LinkedIn](link) |
+| Radin Jafari | Electrical & Programming | [LinkedIn](https://www.linkedin.com/in/radin-jafari/) |
+| Wilson Yang | Mechanical & Design | [LinkedIn](https://www.linkedin.com/in/shihweiyang/) |
+| Hongyi Zhu | Mechanical & Assembly | [LinkedIn](https://www.linkedin.com/in/hongyi-zhu-065a71336/) |
+| Brady Dong | Mechanical & Assembly | [LinkedIn](https://www.linkedin.com/in/brady-dong/) |
