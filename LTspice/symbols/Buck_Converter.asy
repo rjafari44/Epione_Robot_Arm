@@ -1,0 +1,16 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal 112 -55 -48 25
+TEXT 30 -65 Center 1 Buck_Converter
+PIN -48 -32 LEFT 8
+PINATTR PinName IN+
+PINATTR SpiceOrder 1
+PIN -48 0 LEFT 8
+PINATTR PinName IN-
+PINATTR SpiceOrder 2
+PIN 112 -32 RIGHT 8
+PINATTR PinName OUT+
+PINATTR SpiceOrder 3
+PIN 112 0 RIGHT 8
+PINATTR PinName OUT-
+PINATTR SpiceOrder 4

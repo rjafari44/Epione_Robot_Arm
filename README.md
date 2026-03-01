@@ -97,10 +97,12 @@ Instead, we rely on:
 
 This is an open-loop configuration. No closed-loop feedback or encoder-based position verification is used.
 
-The official ARCTOS electrical schematic is available on the manufacturer’s website. The exact wiring configuration used in this build is attached below.
+The official ARCTOS electrical schematic is available on the manufacturer’s website. The exact wiring configuration used in this build is attached below. I have simplified the model of the wiring diagram from the website, including only necessary pins.
 
 Circuit schematic:  
-![Diagram]()
+![Diagram](/assets/Schematic.png)
+
+*Note: the schematic of the gesture mode is identical. No need to disconnect the joystick, it just won't get used.*
 
 **Important:**  
 When uploading firmware, ensure that motor power is disconnected. Leaving motor power enabled during upload may cause unintended jittering.
