@@ -37,11 +37,12 @@ constexpr int MAX_STEPPER_SPEED{1000}; // max speed for steppers
 constexpr int MAX_STEPPER_ACCEL{800};  // max acceleration for steppers
 constexpr int STEP_SCALE{60};          // step scaling factor
 constexpr int DEAD_ZONE{40};           // joystick dead zone threshold
+inline int currentMode{1};
 
 // ---------------- Servo Variables ----------------
 constexpr float SERVO_MAX_SPEED{60.0}; // max servo speed in deg/sec
 constexpr int SERVO_DEAD_ZONE{60};     // servo dead zone threshold
-float servoPosition{90.0};             // current servo position
+inline float servoPosition{90.0};             // current servo position
 
 // ---------------- Function Declarations ----------------
 void moveMotors(int dir);  // move selected motor(s) or servo in given direction

@@ -21,7 +21,6 @@ void setup() {
 
 void loop() {
   // ---------- Variables ----------
-  static int currentMode{1};                        // current selected motor mode (default 1)
   static bool lastButtonState{HIGH};                // previous joystick button state
   static unsigned long lastServoUpdate{0};          // last time servo position was updated
   bool buttonState{};                               // current joystick button state
