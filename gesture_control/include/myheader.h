@@ -4,17 +4,19 @@
 #include <Servo.h>         // library for controlling servo motors
 
 // ---------------- Pin Definitions ----------------
-constexpr int M1_STEP{44};  // step pin for motor 1
-constexpr int M1_DIR{45};   // direction pin for motor 1
-constexpr int M2_STEP{42};  // step pin for motor 2
-constexpr int M2_DIR{43};   // direction pin for motor 2
-constexpr int M3_STEP{40};  // step pin for motor 3
-constexpr int M3_DIR{41};   // direction pin for motor 3
-constexpr int M4_STEP{38};  // step pin for motor 4
-constexpr int M4_DIR{39};   // direction pin for motor 4
-constexpr int M5_STEP{34};  // step pin for motor 5
-constexpr int M5_DIR{35};   // direction pin for motor 5
-constexpr int SERVO_PIN{6}; // pwm pin for the servo motor
+constexpr int M1_STEP{44};    // step pin for motor 1
+constexpr int M1_DIR{45};     // direction pin for motor 1
+constexpr int M2_STEP{42};    // step pin for motor 2
+constexpr int M2_DIR{43};     // direction pin for motor 2
+constexpr int M3_STEP{40};    // step pin for motor 3
+constexpr int M3_DIR{41};     // direction pin for motor 3
+constexpr int M4_STEP{38};    // step pin for motor 4
+constexpr int M4_DIR{39};     // direction pin for motor 4
+constexpr int M5_STEP{34};    // step pin for motor 5
+constexpr int M5_DIR{35};     // direction pin for motor 5
+constexpr int FLOAT_STEP{36}; // floating step pin to pulldown
+constexpr int FLOAT_DIR{37};  // floating direction pin to pull down
+constexpr int SERVO_PIN{6};   // pwm pin for the servo motor
 
 // ---------------- Objects ----------------
 inline Servo myServo; // servo object

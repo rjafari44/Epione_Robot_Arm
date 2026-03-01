@@ -9,6 +9,9 @@ void setup() {
     motors[i].setAcceleration(MAX_STEPPER_ACCEL); // set acceleration for each motor
   }
 
+  pinMode(FLOAT_STEP, INPUT_PULLUP); // set the floating step pin to pulldown
+  pinMode(FLOAT_DIR, INPUT_PULLUP);  // set the floating direction pin to pulldown
+
   myServo.attach(SERVO_PIN);    // attach servo to its pin
   myServo.write(servoPosition); // set initial servo position
 
