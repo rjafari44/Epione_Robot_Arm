@@ -124,13 +124,13 @@ The software implementation introduces two independent control modes:
 
 Manual mode uses a joystick with three inputs:
 
-- Vx  
-- Vy  
+- VRx  
+- VRy  
 - Sw  
 
-Only Vx and Sw are used in this implementation.
+Only VRx and Sw are used in this implementation.
 
-- Vx controls forward and reverse movement of the currently selected motor.  
+- VRx controls forward and reverse movement of the currently selected motor.  
 - Sw cycles through available motors.  
 
 Serial Monitor input is also supported and recommended for clarity, as it displays which motor is currently selected.
@@ -139,8 +139,8 @@ Serial Monitor input is also supported and recommended for clarity, as it displa
 
 | Input | Function |
 |--------|----------|
-| Vx (positive) | Move selected motor forward |
-| Vx (negative) | Move selected motor backward |
+| VRx (positive) | Move selected motor forward |
+| VRx (negative) | Move selected motor backward |
 | Sw | Cycle to next motor |
 | Serial input | Manual motor selection / debugging |
 
