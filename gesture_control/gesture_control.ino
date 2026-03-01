@@ -1,90 +1,85 @@
 #include "myheader.h"
 
-// For timing fist hold reset
-unsigned long fistHoldStart = 0;
-bool motorActive = false;
-
 void setup() {
-  Serial.begin(115200);
-  delay(1000);
+  Serial.begin(115200); // initialize serial communication at 115200 baud rate
+  delay(1000);          // wait for serial to stabilize
 
   for (int i = 0; i < 5; i++) {
-    motors[i].setMaxSpeed(MAX_STEPPER_SPEED);
-    motors[i].setAcceleration(MAX_STEPPER_ACCEL);
+    motors[i].setMaxSpeed(MAX_STEPPER_SPEED);     // set max speed for each motor
+    motors[i].setAcceleration(MAX_STEPPER_ACCEL); // set acceleration for each motor
   }
 
-  myServo.attach(SERVO_PIN);
-  myServo.write(servoPosition);
+  myServo.attach(SERVO_PIN);    // attach servo to its pin
+  myServo.write(servoPosition); // set initial servo position
 
-  Serial.println("Robotic Arm Ready");
-  Serial.println("Waiting for Python signal to select motor (1-5)...");
+  Serial.println("Robotic Arm Ready"); // notify ready state
+  Serial.println("Waiting for Python signal to select motor (1-5)..."); // prompt motor selection
 }
 
 void loop() {
-  static String inputLine = "";
-  static unsigned long fistHoldStart{};
-  static bool motorActive{};
-  char c{};
-  int commaIndex{};
-  int motor{};
-  int cmd{};
+  // --------- Variables ----------
+  static String inputLine = "";         // buffer for incoming serial data
+  static unsigned long fistHoldStart{}; // timestamp for stop/fist hold
+  static bool motorActive{};            // track if motor is currently active
+  char c{};                             // current serial character
+  int commaIndex{};                     // index of comma in input
+  int motor{};                          // motor number from input
+  int cmd{};                            // command from input
 
-  // ---------- SERIAL READING ----------
+  // ---------- Serial Reading ----------
   while (Serial.available()) {
-    c = Serial.read();
-    if (c == '\n') {
-      // parse line from python: <motor>,<command>
-      commaIndex = inputLine.indexOf(',');
+    c = Serial.read();                     // read a character
+    if (c == '\n') {                       // end of line received
+      commaIndex = inputLine.indexOf(','); // find comma separator
       if (commaIndex > 0) {
-        motor = inputLine.substring(0, commaIndex).toInt();
-        cmd   = inputLine.substring(commaIndex + 1).toInt();
+        motor = inputLine.substring(0, commaIndex).toInt(); // parse motor number
+        cmd   = inputLine.substring(commaIndex + 1).toInt(); // parse command
         
-        // ---------- MOTOR SELECTION ----------
+        // ---------- Motor Selection ----------
         if (!motorActive && motor >= 1 && motor <= 5) {
-          currentMode = motor;   // select motor once
-          motorActive = true;
-          Serial.print("Motor selected: ");
+          currentMode = motor;              // select motor once
+          motorActive = true;               // mark motor as active
+          Serial.print("Motor selected: "); // notify selection
           Serial.println(currentMode);
         }
 
-        // ---------- MOTOR CONTROL ----------
+        // ---------- Motor Control ----------
         if (motorActive && motor == currentMode) {
           switch (cmd) {
             case 1: // forward
-              moveMotors(2);
-              fistHoldStart = 0;
+              moveMotors(2);     // move motor forward
+              fistHoldStart = 0; // reset fist hold timer
               break;
             case 2: // backward
-              moveMotors(-2);
-              fistHoldStart = 0;
+              moveMotors(-2);    // move motor backward
+              fistHoldStart = 0; // reset fist hold timer
               break;
             case 0: // stop/fist
-              stopMotors();
-              if (fistHoldStart == 0) fistHoldStart = millis();
+              stopMotors();      // stop motor
+              if (fistHoldStart == 0) fistHoldStart = millis(); // start hold timer
               break;
             case 9: // idle/no detection
-              // do nothing, just let motors run
-              break;
+              break;             // do nothing
           }
         }
       }
-      inputLine = "";
+      inputLine = ""; // clear input buffer
     } else {
-      inputLine += c;
+      inputLine += c; // append char to input buffer
     }
   }
 
-  // -------- FIST HOLD RESET ----------
+  // -------- Fist Hold Reset ----------
   if (fistHoldStart != 0 && millis() - fistHoldStart >= 5000) {
-    currentMode = 0;
-    motorActive = false;
-    fistHoldStart = 0;
-    Serial.println("Reset to motor selection screen");
-    Serial.println("Waiting for Python signal to select motor (1-5)...");
+    currentMode = 0;     // reset selected motor
+    motorActive = false; // mark motor as inactive
+    fistHoldStart = 0;   // reset hold timer
+    Serial.println("Reset to motor selection screen"); // notify reset
+    Serial.println("Waiting for Python signal to select motor (1-5)..."); // prompt selection
   }
 
-  // -------- RUN STEPPERS ----------
+  // -------- Run Steppers ----------
   for (int i = 0; i < 5; i++) {
-    motors[i].run();
+    motors[i].run(); // step each motor
   }
 }

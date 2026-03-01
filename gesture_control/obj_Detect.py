@@ -10,7 +10,7 @@ print("Starting Industrial Gesture Motor Control (Continuous Feedback with Selec
 ser = serial.Serial('/dev/ttyACM0', 115200, timeout=0.1)  # open serial port for Arduino with baudrate 115200
 time.sleep(2)  # wait 2s to allow Arduino to reset and be ready
 
-# ---------------- Mediapipe Setup ----------------
+# ---------------- MediaPipeSetup ----------------
 mp_hands = mp.solutions.hands  # load Mediapipe hand tracking module
 hands = mp_hands.Hands(max_num_hands=1)  # track max 1 hand per frame
 mp_draw = mp.solutions.drawing_utils  # utilities to draw hand landmarks
@@ -103,7 +103,7 @@ while True:
 
         held_time = current_time - gesture_hold_start if gesture_hold_start else 0  # how long gesture has been held
 
-        # ---------------- STATE MACHINE ----------------
+        # ---------------- State Machine ----------------
         if stable_gesture == 0 and held_time >= TRIGGER_HOLD_TIME:
             # fist held long enough triggers selection mode
             if state != STATE_SELECTION:
