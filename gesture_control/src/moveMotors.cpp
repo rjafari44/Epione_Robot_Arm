@@ -1,5 +1,6 @@
 #include "myheader.h"
 
+// moving the motors, taking a set servo speed as input
 void moveMotors(int dir) {
   int scaledStep{};               // scaled step amount for steppers
   scaledStep = STEP_SCALE * dir;  // calculate scaled step
@@ -10,7 +11,7 @@ void moveMotors(int dir) {
       servoPosition = constrain(servoPosition, 0, 180); // keep servo within 0-180
       myServo.write(servoPosition);  // move servo
       break;
-    case 2: // together (motors 0+3)
+    case 2: // together (motors 1+4)
       motors[0].moveTo(motors[0].currentPosition() + scaledStep); // move motor 1
       motors[3].moveTo(motors[3].currentPosition() - scaledStep); // move motor 4 opposite (due to wiring)
       break;
@@ -28,12 +29,13 @@ void moveMotors(int dir) {
   }
 }
 
+// stop motors
 void stopMotors() {
   if (currentMode == 1) {
-    myServo.write(servoPosition);    // hold servo in place
+    myServo.write(servoPosition); // hold servo in place
   } else {
     for (int i = 0; i < 5; i++) {
-      motors[i].stop();              // stop each stepper motor
+      motors[i].stop(); // stop each stepper motor
     }
   }
 }

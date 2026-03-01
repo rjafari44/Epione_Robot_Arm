@@ -17,14 +17,12 @@ void setup() {
 }
 
 void loop() {
-  // --------- Variables ----------
+  // ---------- Variables ----------
   static String inputLine = "";         // buffer for incoming serial data
   static unsigned long fistHoldStart{}; // timestamp for stop/fist hold
   static bool motorActive{};            // track if motor is currently active
   char c{};                             // current serial character
-  int commaIndex{};                     // index of comma in input
-  int motor{};                          // motor number from input
-  int cmd{};                            // command from input
+  int commaIndex{}, motor{}, cmd{};     // index of comma in input, motor number from input, command from input
 
   // ---------- Serial Reading ----------
   while (Serial.available()) {
