@@ -12,7 +12,7 @@ The system is divided into four primary sections:
 A Bill of Materials (BOM) is not included here, as the official ARCTOS BOM covers the majority of required components. This repository contains only files and documentation original to our group, including custom CAD files and wiring schematics.
 
 Image of robot arm:  
-![Diagram](/assets/Epione_Robot_Arm.jpg)
+![Diagram](/assets/epione-robot-arm.jpg)
 
 ---
 
@@ -52,7 +52,7 @@ The design prioritizes:
 All custom end effector CAD files are included in this repository.
 
 End Effector Assembly Model:
-![Diagram](assets/Gripper.png)
+![Diagram](assets/gripper.png)
 
 ### Assembly Notes
 
@@ -102,7 +102,7 @@ This is an open-loop configuration. No closed-loop feedback or encoder-based pos
 The official ARCTOS electrical schematic is available on the manufacturer’s website. The exact wiring configuration used in this build is attached below. I have simplified the model of the wiring diagram from the website, including only necessary pins.
 
 Circuit schematic:  
-![Diagram](/assets/Schematic.png)
+![Diagram](/assets/epione-schematic.png)
 
 *Note: the schematic of the gesture mode is identical. No need to disconnect the joystick, it just won't get used.*
 
@@ -216,18 +216,18 @@ arduino-cli board list
 
 ### 2. Run the manual program in CLI
 ```bash
-./runManual.sh
+./run_manual.sh
 ```
 
 ---
 
 ### 3. Run the gesture-control program in CLI
 ```bash
-./runGesture.sh
+./run_gesture.sh
 ```
 #### exit then
 ```bash
-python obj_Detect.py
+python obj_detect.py
 ```
 
 
