@@ -216,18 +216,18 @@ arduino-cli board list
 
 ### 2. Run the manual program in CLI
 ```bash
-./run_manual.sh
+./run_manual_control.sh
 ```
 
 ---
 
 ### 3. Run the gesture-control program in CLI
 ```bash
-./run_gesture.sh
+./run_gesture_control.sh
 ```
 #### exit then
 ```bash
-python obj_detect.py
+./run_obj_detect.sh
 ```
 
 
