@@ -1,4 +1,4 @@
-#include "config.h"
+#include "common.h"
 
 void setup() {
   Serial.begin(115200); // start serial communication at 115200 baud rate
