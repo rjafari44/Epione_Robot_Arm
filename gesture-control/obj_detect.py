@@ -34,7 +34,7 @@ selection_time = None  # timestamp when motor selection occurs
 
 # ---------------- Settings ----------------
 STABLE_FRAMES_REQUIRED = 8  # number of consecutive frames to confirm a gesture
-TRIGGER_HOLD_TIME = 4.0  # duration to hold a gesture before triggering action
+TRIGGER_HOLD_TIME = 5.0  # duration to hold a gesture before triggering action
 SELECTION_DELAY = 2.0    # delay after motor selection before movement command is sent
 CONSOLE_UPDATE_INTERVAL = 0.5  # interval in seconds for console output refresh
 
