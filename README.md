@@ -2,16 +2,19 @@
 
 An ARCTOS-based robotic arm featuring a custom end effector, custom wiring architecture, and dual-mode control software. This project was completed in collaboration with a group of students at my university, and it would not have been possible without their collective effort.
 
-The system is divided into five primary sections:
+<br>
+
+![Diagram](/assets/epione-robot-arm.jpg)
+
+---
+
+### Table of Contents:
 
 - [Bill of Materials](#bill-of-materials)
 - [Mechanical](#mechanical)
 - [Electrical](#electrical)
 - [Programming](#programming)
 - [Usage](#usage)
-
-### Image of Robot Arm:  
-![Diagram](/assets/epione-robot-arm.jpg)
 
 ---
 
